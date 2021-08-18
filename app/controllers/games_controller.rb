@@ -1,9 +1,10 @@
 class GamesController < ApplicationController
   def index
     @games = Game.all
-    @highest_score = Game.highest_total_score
-    @lowest_score = Game.lowest_total_score
-    @percentage_home_wins = GameTeam.percentage_home_wins
+    @game_teams = GameTeam.all
+    # @highest_score = Game.highest_total_score
+    # @lowest_score = Game.lowest_total_score
+    # @percentage_home_wins = GameTeam.percentage_home_wins
     # @percentage_visitor_wins = Game.percentage_visitor_wins
     # @percentage_ties = Game.percentage_ties
     # @count_of_games_by_season = Game.count_of_games_by_season
