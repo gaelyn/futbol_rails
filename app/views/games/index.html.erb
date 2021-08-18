@@ -2,11 +2,43 @@
 <div id="highest-score">
   <h3>Highest Total Score</h3>
   <p><em>Highest sum of the winning and losing teams’ scores</em></p>
-  <%= @highest_score %>
+  <%= @games.highest_total_score %>
 </div>
 
 <div id="lowest-score">
   <h3>Lowest Total Score</h3>
   <p><em>Lowest sum of the winning and losing teams’ scores</em></p>
-  <%= @lowest_score %>
+  <%= @games.lowest_total_score %>
+</div>
+
+<div id="percentage-home-wins">
+  <h3>Percentage Home Wins</h3>
+  <p><em>Percentage of games that a home team has won</em></p>
+  <%= @game_teams.percentage_home_wins %>
+</div>
+
+<div id="percentage-visitor-wins">
+  <h3>Percentage Visitor Wins</h3>
+  <p><em>Percentage of games that a visitor has won</em></p>
+</div>
+
+<div id="percentage-ties">
+  <h3>Percentage Ties</h3>
+  <p><em>Percentage of games that has resulted in a tie</em></p>
+</div>
+
+<div id="count-by-season">
+  <h3>Count of Games By Season</h3>
+
+</div>
+
+<div id="avg-goals-game">
+  <h3>Average Goals Per Game</h3>
+  <p><em>	Average number of goals scored in a game across all seasons including both home and away goals</em></p>
+
+</div>
+
+<div id="avg-goals-season">
+  <h3>Average Goals By Season</h3>
+
 </div>
