@@ -19,4 +19,8 @@ class Game < ApplicationRecord
   def self.count_of_games_by_season
     group(:season).order(season: :asc).count(:season)
   end
+
+  def self.average_goals_per_game
+    (sum('home_goals + away_goals').to_f / self.count).round(2)
+  end
 end

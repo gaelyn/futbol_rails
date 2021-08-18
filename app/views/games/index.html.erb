@@ -34,13 +34,12 @@
   <% @games.count_of_games_by_season.each do |season, count| %>
     <p><%= season[0..3] %> - <%= season[4..7] %>: <%= count %></p>
   <% end %>
-
 </div>
 
 <div id="avg-goals-game">
   <h3>Average Goals Per Game</h3>
   <p><em>	Average number of goals scored in a game across all seasons including both home and away goals</em></p>
-
+  <p><%= @games.average_goals_per_game %></p>
 </div>
 
 <div id="avg-goals-season">

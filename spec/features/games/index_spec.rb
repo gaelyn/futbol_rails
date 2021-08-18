@@ -87,5 +87,12 @@ RSpec.describe 'Games index' do
         expect(page).to have_content('2014 - 2015: 1')
       end
     end
+
+    it 'can see average goals per game' do
+      expect(page).to have_content('Average Goals Per Game')
+      within("#avg-goals-game") do
+        expect(page).to have_content('4.67')
+      end
+    end
   end
 end
