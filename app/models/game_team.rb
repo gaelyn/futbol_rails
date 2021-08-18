@@ -10,7 +10,7 @@ class GameTeam < ApplicationRecord
   end
 
   def self.percentage_wins(hoa)
-    ((self.wins(hoa) / Game.count) * 100).round
+    (self.wins(hoa) / Game.count).round(2)
   end
 
   def self.ties
