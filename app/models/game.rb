@@ -17,6 +17,6 @@ class Game < ApplicationRecord
   end
 
   def self.count_of_games_by_season
-    group(:season).count(:season)
+    group(:season).order(season: :asc).count(:season)
   end
 end

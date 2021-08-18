@@ -13,7 +13,7 @@ RSpec.describe 'Games index' do
                           venue: "SeatGeek Stadium",
                           venue_link: "/api/v1/venues/null")
     @game2 = Game.create!(id: 2012020002,
-                          season: "20122013",
+                          season: "20132014",
                           reg_post: "Regular Season",
                           date_time: "1/19/13",
                           away_team_id: 5,
@@ -23,7 +23,7 @@ RSpec.describe 'Games index' do
                           venue: "SeatGeek Stadium",
                           venue_link: "/api/v1/venues/null")
     @game3 = Game.create!(id: 2012020003,
-                          season: "20122013",
+                          season: "20142015",
                           reg_post: "Regular Season",
                           date_time: "1/19/13",
                           away_team_id: 5,
@@ -76,6 +76,15 @@ RSpec.describe 'Games index' do
       expect(page).to have_content('Percentage Ties')
       within("#percentage-visitor-wins") do
         expect(page).to have_content('33%')
+      end
+    end
+
+    it 'can see count of games by season' do
+      expect(page).to have_content('Count of Games By Season')
+      within("#count-by-season") do
+        expect(page).to have_content('2012 - 2013: 1')
+        expect(page).to have_content('2013 - 2014: 1')
+        expect(page).to have_content('2014 - 2015: 1')
       end
     end
   end

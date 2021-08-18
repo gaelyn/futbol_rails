@@ -31,6 +31,9 @@
 
 <div id="count-by-season">
   <h3>Count of Games By Season</h3>
+  <% @games.count_of_games_by_season.each do |season, count| %>
+    <p><%= season[0..3] %> - <%= season[4..7] %>: <%= count %></p>
+  <% end %>
 
 </div>
 
