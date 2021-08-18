@@ -12,4 +12,15 @@ class GameTeam < ApplicationRecord
   def self.percentage_home_wins
     ((self.home_wins / Game.count) * 100).round
   end
+
+  def self.visitor_wins
+    where('result = ?', 'WIN')
+    .where('hoa = ?', 'away')
+    .count
+    .to_f
+  end
+
+  def self.percentage_visitor_wins
+    ((self.visitor_wins / Game.count) * 100).round
+  end
 end
