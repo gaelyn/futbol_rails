@@ -22,7 +22,7 @@ RSpec.describe GameTeam, type: :model do
       @game_team7 = create(:game_team, hoa: "away", result: "WIN")
       @game_team8 = create(:game_team, hoa: "away", result: "LOSS")
       @game_team9 = create(:game_team, hoa: "away", result: "LOSS")
-      @game_team10 = create(:game_team, hoa: "away", result: "LOSS")
+      @game_team10 = create(:game_team, hoa: "away", result: "TIE")
     end
 
     describe '#wins' do
@@ -36,6 +36,18 @@ RSpec.describe GameTeam, type: :model do
       it 'can find percentage of games that a home or away team has won' do
         expect(GameTeam.percentage_wins('home')).to eq(30)
         expect(GameTeam.percentage_wins('away')).to eq(20)
+      end
+    end
+
+    describe '#ties' do
+      it 'can find count of games tied' do
+        expect(GameTeam.ties).to eq(1.0)
+      end
+    end
+
+    describe '#percentage_ties' do
+      it 'can find percentage of games tied' do
+        expect(GameTeam.percentage_ties).to eq(10)
       end
     end
   end
