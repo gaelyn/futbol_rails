@@ -26,7 +26,7 @@
 <div id="percentage-ties">
   <h3>Percentage Ties</h3>
   <p><em>Percentage of games that has resulted in a tie</em></p>
-  <p><%= @game_teams.percentage_ties %>%</p>
+  <p><%= (@game_teams.percentage_ties * 100).to_i %>%</p>
 </div>
 
 <div id="count-by-season">

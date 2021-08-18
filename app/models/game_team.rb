@@ -15,11 +15,12 @@ class GameTeam < ApplicationRecord
 
   def self.ties
     where('result = ?', 'TIE')
+    .where('hoa = ?', 'home')
     .count
     .to_f
   end
 
   def self.percentage_ties
-    ((self.ties / Game.count) * 100).round
+    (self.ties / Game.count).round(2)
   end
 end
