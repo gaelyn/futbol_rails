@@ -39,6 +39,19 @@ RSpec.describe Game, type: :model do
                             venue: "SeatGeek Stadium",
                             venue_link: "/api/v1/venues/null")
       @games = Game.all
+
+      @game_team1 = create(:game_team, game: @game1)
+      @game_team2 = create(:game_team, game: @game2)
+      @game_team3 = create(:game_team, game: @game3)
+      @game_team4 = create(:game_team, game: @game3)
+      @game_team5 = create(:game_team, game: @game2)
+      @game_team6 = create(:game_team, game: @game1)
+      @game_team7 = create(:game_team, game: @game1)
+      @game_team8 = create(:game_team, game: @game1)
+      @game_team9 = create(:game_team, game: @game1)
+      @game_team10 = create(:game_team, game: @game1)
+
+
     end
     describe '#highest_total_score' do
       it 'can find highest sum of the winning and losing teams scores' do
