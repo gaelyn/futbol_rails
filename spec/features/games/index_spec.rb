@@ -34,6 +34,12 @@ RSpec.describe 'Games index' do
                           venue_link: "/api/v1/venues/null")
     @games = Game.all
 
+    @game_team1 = create(:game_team, hoa: "home", result: "WIN")
+    @game_team2 = create(:game_team, hoa: "home", result: "WIN")
+    @game_team3 = create(:game_team, hoa: "away", result: "WIN")
+    @game_team4 = create(:game_team, hoa: "away", result: "LOSS")
+    @game_team5 = create(:game_team, hoa: "home", result: "LOSS")
+
     visit "/games"
   end
 
@@ -49,6 +55,20 @@ RSpec.describe 'Games index' do
       expect(page).to have_content('Lowest Total Score')
       within("#lowest-score") do
         expect(page).to have_content('2')
+      end
+    end
+
+    it 'can see percentage home wins' do
+      expect(page).to have_content('Percentage Home Wins')
+      within("#percentage-home-wins") do
+        expect(page).to have_content('25%')
+      end
+    end
+
+    it 'can see percentage visitor wins' do
+      expect(page).to have_content('Percentage Visitor Wins')
+      within("#percentage-visitor-wins") do
+        expect(page).to have_content('13%')
       end
     end
   end
