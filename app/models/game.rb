@@ -15,4 +15,8 @@ class Game < ApplicationRecord
     .last
     .score
   end
+
+  def self.count_of_games_by_season
+    group(:season).count(:season)
+  end
 end

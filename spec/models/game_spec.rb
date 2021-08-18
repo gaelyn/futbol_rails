@@ -19,7 +19,7 @@ RSpec.describe Game, type: :model do
                             venue: "SeatGeek Stadium",
                             venue_link: "/api/v1/venues/null")
       @game2 = Game.create!(id: 2012020002,
-                            season: "20122013",
+                            season: "20132014",
                             reg_post: "Regular Season",
                             date_time: "1/19/13",
                             away_team_id: 5,
@@ -29,7 +29,7 @@ RSpec.describe Game, type: :model do
                             venue: "SeatGeek Stadium",
                             venue_link: "/api/v1/venues/null")
       @game3 = Game.create!(id: 2012020003,
-                            season: "20122013",
+                            season: "20142015",
                             reg_post: "Regular Season",
                             date_time: "1/19/13",
                             away_team_id: 5,
@@ -62,6 +62,13 @@ RSpec.describe Game, type: :model do
     describe '#lowest_total_score' do
       it 'can find lowest sum of the winning and losing teams scores' do
         expect(@games.lowest_total_score).to eq(2)
+      end
+    end
+
+    describe '#count_of_games_by_season' do
+      it 'can group games by season' do
+        expect(@games.count_of_games_by_season).to be_a(Hash)
+        expect(@games.count_of_games_by_season["20122013"]).to eq(1)
       end
     end
   end
